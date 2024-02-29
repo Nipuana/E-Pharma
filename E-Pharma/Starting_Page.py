@@ -9,8 +9,9 @@ def signin_action():
     import loggin
 
 root = Tk()
-root.title("E-Pharma Welcome")
+root.title("Welcome To E-Pharma")
 root.geometry("450x350")
+root.iconbitmap("download.ico")
 root.resizable(False, False)
 root.config(bg="#2A2F4F")
 
