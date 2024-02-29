@@ -132,11 +132,12 @@ def log_out():
 root = Tk()
 root.config(bg='#C0C0C0')  # Light gray background
 root.title("Medicine Database Admin Area")
+root.iconbitmap('download.ico')
 root.geometry("850x500")
 root.resizable(False, False)  # Disable resizing
 
 # Adding a background image
-img = PhotoImage(file='img_folder\\admin_a.png')
+img = PhotoImage(file='admin_a.png')
 Label(root, image=img).place(x=0, y=0)
 
 # Entry fields for adding new records
