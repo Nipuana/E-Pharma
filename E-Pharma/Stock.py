@@ -54,7 +54,8 @@ def draw_table(records):
 root = Tk()
 root.config(bg='#C0C0C0')  # Light gray background
 root.title("Medicine Database Admin Area")
-root.geometry("850x500")
+root.geometry("850x650")
+root.iconbitmap('download.ico')
 root.resizable(False, False)  # Disable resizing
 
 # Entry fields for adding new records
