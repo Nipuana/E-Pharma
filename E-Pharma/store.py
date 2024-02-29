@@ -2,6 +2,8 @@ from tkinter import *
 
 root=Tk()
 root.config(bg="gray")
+root.iconbitmap("download.ico")
+root.title('E-PHARMA STORE')
 
 root.geometry("1000x550")
 # root.config(bg="#2A2F4F")
