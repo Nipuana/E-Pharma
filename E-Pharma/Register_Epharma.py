@@ -155,7 +155,7 @@ Button(frame,width=39,pady=7,text="Register",bg="#57a1f8",fg="white",bd=0,comman
 
 # adding a lebel for already existing accounts
 
-label=Label(frame,text='Wanna log a into existing account?',fg='black',background="lavender",font=('Microsoft Yahei UI Light',9))
+label=Label(frame,text='Already have an account?',fg='black',background="lavender",font=('Microsoft Yahei UI Light',9))
 label.place(x=75,y=340)
 
 # adding a login button without a background or anything for it to have only underline and if clicked on will open a login page and destroy the register page
