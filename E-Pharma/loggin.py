@@ -3,7 +3,7 @@ from tkinter import messagebox
 import sqlite3
 
 root = Tk()
-root.title('LOGIN')
+root.title('SIGN-IN')
 root.geometry('925x500+300+200')  # size of background
 root.configure(bg='white')  # background
 root.iconbitmap("download.ico") #icons 
