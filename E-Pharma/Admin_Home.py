@@ -13,6 +13,7 @@ def med_db():
 root = Tk()
 root.config(bg='#C0C0C0')  # Light gray background
 root.title("ADMIN HOME")
+root.iconbitmap('download.ico')
 root.geometry("400x200")
 root.resizable(False, False)  # Disable resizing
 
