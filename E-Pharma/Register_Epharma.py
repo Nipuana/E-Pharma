@@ -5,19 +5,15 @@ import sqlite3
 
 register=Tk()
 
-#######################################
 #Adding title on the top
 register.title("Register")
 
-#######################################################
 # Setting a fixed size for the gui when first opened
 register.geometry("920x500+300+200")
 
-#######################################################
 #Adding background color for the gui page
 register.config(bg="#fff")
 
-#########################################################
 # Makes it so that the size of the gui cannot be changed  
 register.resizable(False,False)
 
@@ -67,7 +63,6 @@ def add_user():
 img=PhotoImage(file='pharmacy2.png')
 Label(register,image=img,border=0,bg="white").place(x=50,y=0)
 
-#############################################################
 # making a function so that we can open another gui
 
 def log():
@@ -84,7 +79,6 @@ frame.place(x=480,y=50)
 Title=Label(frame,text="Register",fg="#57a1f8",bg="white",background="lavender",font=('Microsoft Yahei UI Light',23,'bold'))
 Title.place(x=100,y=5)
 
-###############################################################
 # Making funcions for animations in the entrybox of Username
 
 def on_enter(e):
