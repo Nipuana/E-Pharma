@@ -6,12 +6,13 @@ root = Tk()
 root.title('LOGIN')
 root.geometry('925x500+300+200')  # size of background
 root.configure(bg='white')  # background
+root.iconbitmap("download.ico") #icons 
 root.resizable(False, False)  # resize horizontal ways or vertical ways
 
 conn = sqlite3.connect('user_database.db')  # Connect to the database
 cursor = conn.cursor()
 
-img = PhotoImage(file='img_folder\\pharmacy1.png')  # add image at side
+img = PhotoImage(file='img_folder\\pharmacy2.png')  # add image at side
 Label(root, image=img, bg='white').place(x=50, y=50)
 
 frame = Frame(root, width=350, height=350, bg='lavender')  # background frame for login work
