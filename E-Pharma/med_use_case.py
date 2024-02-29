@@ -41,7 +41,8 @@ def logout():
 root = Tk()
 root.config(bg='#C0C0C0')  # Light gray background
 root.title("Medicine Database")
-root.geometry("800x500")
+root.iconbitmap('download.ico')
+root.geometry("1100x800")
 root.resizable(False, False)  # Disable resizing
 
 # Entry fields for adding new records
