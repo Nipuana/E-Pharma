@@ -1,19 +1,17 @@
 import sqlite3
 from tkinter import *
 
-
 # Create the main window
 root = Tk()
 root.config(bg='#C0C0C0')  # Light gray background
 root.title("Medicine Database Admin Area")
-root.geometry("850x500")
+root.geometry("850x700")
 root.resizable(False, False)  # Disable resizing
 
-
-# to add icon we need to call a.iconbitmap("filename.ico") function
+# To add an icon, call root.iconbitmap("filename.ico") function
 root.iconbitmap('img_folder\\download.ico')
 
-#a function to navigate to UI1
+# A function to navigate to UI1
 def ui():
     root.destroy()
     import ui1
@@ -61,12 +59,11 @@ def draw_table(records):
         for j, value in enumerate(record[1:]):  # Exclude the ID
             canvas.create_text(150 * (j+1), 50 + 30 * i + 15, text=value)
 
-
-
+    # Update the canvas size based on the content
+    canvas.config(scrollregion=canvas.bbox("all"))
 
 # Entry fields for adding new records
 entry_style = {"font": ("Arial", 12), "bg": '#D3D3D3', "fg": '#333333', "borderwidth": 0}  # Modified entry style
-
 labels = ["Medicine Name", "Quantity", "Expiry Date", "Purpose"]
 entries = {}
 
@@ -76,22 +73,28 @@ for i, label in enumerate(labels):
     entries[label] = Entry(root, **entry_style)
     entries[label].place(x=320, y=120 + 40 * i)
 
-# Listbox to display records with Scrollbar
-listbox_frame = Frame(root)
-listbox_frame.place(x=550, y=50)
+# Create a frame to hold the canvas and scrollbars
+frame = Frame(root, bd=2, relief=SUNKEN)
+frame.place(x=50, y=50)
 
-scrollbar = Scrollbar(listbox_frame, orient=VERTICAL, width=4)  # Set the width here
-listbox = Listbox(listbox_frame, width=40, height=20, bg="#595959", fg="white", selectbackground="#AED6F1", borderwidth=0, yscrollcommand=scrollbar.set)
-listbox.pack(side=LEFT, fill=Y)
-scrollbar.config(command=listbox.yview)
-scrollbar.pack(side=RIGHT, fill=Y)
+# Create a canvas within the frame
+canvas = Canvas(frame, width=700, height=500, bg="white")
+canvas.pack(side=LEFT, fill=BOTH, expand=True)
 
-# Canvas for drawing table-like structure
-canvas = Canvas(root, width=700, height=500, bg="white")
-canvas.place(x=50, y=50)
+# Bind the mouse wheel to scroll the canvas
+canvas.bind_all("<MouseWheel>", lambda event: canvas.yview_scroll(int(-1 * (event.delta / 120)), "units"))
+
+# Create a vertical scrollbar on the right side
+vsb = Scrollbar(frame, orient=VERTICAL, command=canvas.yview)
+vsb.pack(side=RIGHT, fill=Y)
+canvas.configure(yscrollcommand=vsb.set)
+
+# Create another frame to hold the contents of the canvas
+table_frame = Frame(canvas, bg="white")
+canvas.create_window((0, 0), window=table_frame, anchor=NW)
 
 # Button for going back to the home screen
-home_button = Button(root, text="Home",  font=("Arial", 12), bg="#3CB371", fg="white", padx=20,command=ui)
+home_button = Button(root, text="Home", font=("Arial", 12), bg="#3CB371", fg="white", padx=20, command=ui)
 home_button.place(x=750, y=10)
 
 # Directly call view_records to show data immediately
